@@ -11,7 +11,8 @@
     @using (Html.BeginForm("Process", "Calc", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
     {
         @Html.AntiForgeryToken()
-        <h4>Add a phone number</h4>
+        <h4>Add numbers</h4>
+        
         <hr />
         @Html.ValidationSummary("", new { @class = "text-danger" })
         <div class="form-group">

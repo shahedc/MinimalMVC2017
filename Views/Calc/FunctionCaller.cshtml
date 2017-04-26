@@ -1,0 +1,88 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@{
+    // ViewBag.Title = "Home Page";
+}
+<html>
+<body>
+<h1>Function Caller</h1>
+
+<h2>Simple Math</h2>
+Number 1: <input type="text" id="n1" size="5" value="8" />
+<br />
+Number 2: <input type="text" id="n2" size="5" value="6" />
+<br />
+Result: 
+<div id="resultDiv">?</div>
+
+<input type="button" value="Add Nums" onclick="processNumbers('add')" />
+<input type="button" value="Subtract Nums" onclick="processNumbers('subtract')" />
+<input type="button" value="Multiply Nums" onclick="processNumbers('multiply')" />
+<input type="button" value="Divide Nums" onclick="processNumbers('divide')" />
+<input type="button" value="% Nums" onclick="processNumbers('modulus')" />
+    
+<h2>Pattern Recognizer</h2>    
+Sequence: 
+<br />
+Number 3: <input type="text" id="n3" size="5" value="4" />
+<br />
+Number 4: <input type="text" id="n4" size="5" value="2" />
+<br />
+<br />    
+ Next:
+<div id="patternNextDiv">?</div>
+<input type="button" value="Guess Next!" onclick="processNumbers('pattern')" />
+
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+<script>
+// Assign handlers immediately after making the request,
+// and remember the jqxhr object for this request
+ 
+function processNumbers(op) {
+    var n1 = $("#n1").val(); //8;
+    var n2 = $("#n2").val(); //6;
+    var n3 = $("#n3").val(); //0;
+    var n4 = $("#n4").val(); //0;
+    //var p = $("#p").val(); //8,6,4,2,?;
+ 
+    var baseUri = "";
+    var fullUri = "";
+    var params = "&op=" + op + "&n1=" + n1 + "&n2=" + n2 + "&n3=" + n3 + "&n4=" + n4 + "";
+
+    baseUri = "https://webfunctions.azurewebsites.net/api/HttpTriggerCSharp/name/%7Bname%7D?code=dR13tGjg3QcBasifEwV1I2F1XFWYyUCBYSUWYf3AhIznsGbqC5flzQ==";
+    fullUri = baseUri + params;
+
+    console.log("op=" + op);
+    console.log("fullUri=" + fullUri);
+
+    var jqxhr = $.getJSON(baseUri + params, function (json) {
+        console.log("success");
+        console.log("json=[" + json + "]");
+        if (op == "pattern")            
+            $("#patternNextDiv").text(json);
+        else
+            $("#resultDiv").text(json);
+    })
+      .done(function () {
+          console.log("second success");
+      })
+      .fail(function () {
+          console.log("error");
+      })
+      .always(function () {
+          console.log("complete");
+      });
+ 
+    // Perform other work here ...
+ 
+    // Set another completion function for the request above
+    jqxhr.complete(function () {
+        console.log("second complete");
+    });
+}
+</script>
+</body>
+</html>  

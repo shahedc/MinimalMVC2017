@@ -16,6 +16,11 @@ namespace MinimalMVC2017.Controllers
             return View("Index");
         }
 
+        public ActionResult FunctionCaller()
+        {
+            return View("FunctionCaller");
+        }
+
         [HttpPost]
         public ActionResult Process(CalcViewModel model)
         {

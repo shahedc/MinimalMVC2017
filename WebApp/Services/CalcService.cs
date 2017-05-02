@@ -12,6 +12,11 @@ namespace MinimalMVC2017.Services
             return x + y ;
         }
 
+        public int SubtractNumbers(int x, int y)
+        {
+            return x - y;
+        }
+
         public int AddNumbersIfSuccessful(int x, int y, IExternalService es)
         {
             if (es.DoGreatThings())

@@ -22,11 +22,43 @@ namespace MinimalMVC2017.Controllers
         }
 
         [HttpPost]
-        public ActionResult Process(CalcViewModel model)
+        public ActionResult Process(CalcViewModel model, string operation)
         {
             var cs = new CalcService();
-            var result = cs.AddNumbers(model.Number1, model.Number2);
+            model.Operation = operation;
+            var result = 0;
+            bool boolResult1 = false;
+            bool boolResult2 = false;
+
+            if (operation == "Add")
+            {
+                result = cs.AddNumbers(model.Number1, model.Number2);
+            } else if (operation == "Subtract")
+            {
+                result = cs.SubtractNumbers(model.Number1, model.Number2);
+            }
+            else if (operation == "Multiply")
+            {
+                result = cs.MultiplyNumbers(model.Number1, model.Number2);
+            }
+            else if (operation == "Divide")
+            {
+                result = cs.SafeDivide(model.Number1, model.Number2);
+            }
+            else if (operation == "CheckEven")
+            {
+                boolResult1 = cs.IsEven(model.Number1);
+                boolResult2 = cs.IsEven(model.Number2);
+            }
+            else if (operation == "CheckOdd")
+            {
+                boolResult1 = !(cs.IsEven(model.Number1));
+                boolResult2 = !(cs.IsEven(model.Number2));
+            }
+
             model.Result = result;
+            model.boolResult1 = boolResult1;
+            model.boolResult2 = boolResult2;
             return View(model);
         }
     }

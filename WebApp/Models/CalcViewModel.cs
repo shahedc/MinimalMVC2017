@@ -12,6 +12,9 @@ namespace MinimalMVC2017.Models
         public int Number1 { get; set; }
         [Display(Name = "Number 2")]
         public int Number2 { get; set; }
+        public string Operation { get; set; }
         public int Result { get; set; }
+        public bool boolResult1 { get; set; }
+        public bool boolResult2 { get; set; }
     }
 }

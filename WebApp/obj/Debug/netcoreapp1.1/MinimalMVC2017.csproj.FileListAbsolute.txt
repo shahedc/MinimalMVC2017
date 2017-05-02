@@ -1,9 +1,0 @@
-D:\_work\MinimalMVC2017\bin\Debug\netcoreapp1.1\MinimalMVC2017.deps.json
-D:\_work\MinimalMVC2017\bin\Debug\netcoreapp1.1\MinimalMVC2017.runtimeconfig.json
-D:\_work\MinimalMVC2017\bin\Debug\netcoreapp1.1\MinimalMVC2017.runtimeconfig.dev.json
-D:\_work\MinimalMVC2017\bin\Debug\netcoreapp1.1\MinimalMVC2017.dll
-D:\_work\MinimalMVC2017\bin\Debug\netcoreapp1.1\MinimalMVC2017.pdb
-D:\_work\MinimalMVC2017\obj\Debug\netcoreapp1.1\MinimalMVC2017.csprojResolveAssemblyReference.cache
-D:\_work\MinimalMVC2017\obj\Debug\netcoreapp1.1\MinimalMVC2017.AssemblyInfo.cs
-D:\_work\MinimalMVC2017\obj\Debug\netcoreapp1.1\MinimalMVC2017.dll
-D:\_work\MinimalMVC2017\obj\Debug\netcoreapp1.1\MinimalMVC2017.pdb
